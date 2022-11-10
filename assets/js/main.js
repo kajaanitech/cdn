@@ -37,7 +37,7 @@ $(document).ready(async function () {
 
                     temp += `
                     
-                    <div class="w-full max-w-sm bg-white rounded-lg shadow-md>
+                    <div class="w-full max-w-sm bg-white rounded-lg shadow-md">
             <div>
                 <img src="${element?.kuva}" class="p-12 rounded-lg grid place-items-center" alt="Palvelun Kuva">
             </div>

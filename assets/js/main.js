@@ -38,15 +38,13 @@ $(document).ready(async function () {
                     temp += `
                     
                     <div class="w-full max-w-sm bg-white rounded-lg shadow-md dark:border-gray-700">
-            <div class="">
+            <div>
                 <img src="${element?.kuva}" class="p-12 rounded-lg" alt="Palvelun Kuva">
             </div>
             <div class="px-5 pb-5">
-                <a>
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900">
-                        ${element?.nimi}
-                    </h5>
-                </a>
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900">
+                    ${element?.nimi}
+                </h5>
                 <div class="flex items-center mt-2.5 mb-5"></div>
                 <div class="justify-between items-center">
                     <span class="text-3xl font-bold text-gray-900">${element?.hinta}€</span> ${type}

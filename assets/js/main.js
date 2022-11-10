@@ -39,7 +39,7 @@ $(document).ready(async function () {
                     
                     <div class="w-full max-w-sm bg-white rounded-lg shadow-md">
             <div>
-                <img src="${element?.kuva}" class="p-12 rounded-lg grid place-items-center" alt="Palvelun Kuva">
+                <img src="${element?.kuva}" class="p-12 w-full rounded-lg grid place-items-center" alt="Palvelun Kuva">
             </div>
             <div class="px-5 pb-5 my-2">
                 <h5 class="text-xl font-semibold tracking-tight text-gray-900">

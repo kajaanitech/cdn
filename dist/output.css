@@ -5543,6 +5543,16 @@ input:checked + .toggle-bg {
   transition-timing-function: linear;
 }
 
+.transition-fade {
+  transition: 0.45s;
+  opacity: 1;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;

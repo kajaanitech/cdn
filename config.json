@@ -1,6 +1,6 @@
 {
     "IlmoitusBanneri": {
-        "enabled": true,
-        "text": "Tämä on on testi!"
+        "enabled": false,
+        "text": null
     }
 }

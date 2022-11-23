@@ -1,10 +1,9 @@
 $(document).ready(async function () {
 
+
+    let failed = 0;
     axios.get('./auth/api/?action=etusivu')
         .then(async function (response) {
-
-            let failed = 0;
-
             var Holder = $("#Palvelut");
             var temp = ``;
 

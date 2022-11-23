@@ -1,6 +1,6 @@
 {
     "IlmoitusBanneri": {
-        "enabled": false,
-        "text": null
+        "enabled": true,
+        "text": "null"
     }
 }

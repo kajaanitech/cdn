@@ -2,7 +2,7 @@ $(document).ready(async function () {
 
 
     let failed = 0;
-    axios.get('../auth/api/?action=etusivu')
+    axios.get('../auth/api/?action=etusivu&lang=en')
         .then(async function (response) {
             var Holder = $("#Palvelut");
             var temp = ``;
@@ -23,8 +23,8 @@ $(document).ready(async function () {
                 } else {
 
                     var desc = ``;
-                    if (element?.description) {
-                        desc = `<div class="my-2 text-sm font-medium text-gray-500">${element?.description}</div>`;
+                    if (element?.description_en) {
+                        desc = `<div class="my-2 text-sm font-medium text-gray-500">${element?.description_en ?? element.description}</div>`;
                     }
 
                     var type = ``;
@@ -45,7 +45,7 @@ $(document).ready(async function () {
             </div>
             <div class="px-5 pb-5 my-2">
                 <h5 class="text-xl font-semibold tracking-tight text-gray-900">
-                    ${element?.nimi}
+                    ${element?.nimi_en ?? element?.nimi}
                 </h5>
                 <div class="flex items-center mt-2.5 mb-5"></div>
                 <div class="justify-between items-center">

@@ -37,6 +37,27 @@ $(document).ready(async function () {
                         type = `Alkaen`;
                     }
 
+                    const $targetEl = document.getElementById(`${element?.id}-description`);
+
+                    const $triggerEl = document.getElementById(`${element?.id}-button`);
+
+                    const options = {
+                        placement: 'bottom',
+                        triggerType: 'hover',
+                        offset: 10,
+                        onHide: () => {
+                            console.log('popover is shown');
+                        },
+                        onShow: () => {
+                            console.log('popover is hidden');
+                        },
+                        onToggle: () => {
+                            console.log('popover is toggled');
+                        }
+                    };
+
+                    const popover = new Popover($targetEl, $triggerEl, options);
+
                     temp += `
                     
                     <div class="w-full max-w-sm bg-white rounded-lg shadow-md">
@@ -49,7 +70,7 @@ $(document).ready(async function () {
                             </h5>
                             <div class="flex items-center mt-2.5 mb-5"></div>
                             <div class="justify-between items-center">
-                                <span class="text-3xl font-bold text-gray-900">${element?.hinta}€</span> ${type} <button data-popover-target="${element?.id}-description" data-popover-placement="bottom-end" type="button"><svg class="w-4 h-4 ml-2 text-gray-400 hover:text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg><span class="sr-only">Show information</span></button>
+                                <span class="text-3xl font-bold text-gray-900">${element?.hinta}€</span> ${type} <button id="${element?.id}-button" data-popover-target="${element?.id}-description" data-popover-placement="bottom-end" type="button"><svg class="w-4 h-4 ml-2 text-gray-400 hover:text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg><span class="sr-only">Show information</span></button>
                             </div>
                             ${desc}
                         </div>

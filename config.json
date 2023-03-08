@@ -1,7 +1,7 @@
 {
     "IlmoitusBanneri": {
-        "enabled": true,
-        "text": "Tietokantaan kohtaan on tullut paljon palvelinhyökkäyksiä, jonka takia hinnasto ei näy..",
-        "text-en": "Our Database have gotten alot of DDOS Attacks recently and it is down, we are solving this issue.."
+        "enabled": false,
+        "text": null,
+        "text-en": null
     }
 }

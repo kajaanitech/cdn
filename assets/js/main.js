@@ -1,6 +1,4 @@
 $(document).ready(async function () {
-
-
     let failed = 0;
     axios.get('./auth/api/?action=etusivu')
         .then(async function (response) {
@@ -82,3 +80,48 @@ AOS.init();
 
 
 $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function (event) { if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) { var target = $(this.hash); target = target.length ? target : $('[name=' + this.hash.slice(1) + ']'); if (target.length) { event.preventDefault(); $('html, body').animate({ scrollTop: target.offset().top }, 1000, function () { var $target = $(target); $target.focus(); if ($target.is(":focus")) { return false; } else { $target.attr('tabindex', '-1'); $target.focus(); }; }); } } });
+
+
+function kello() {
+    return {
+        paivat: "0",
+        tunnit: "00",
+        minuutit: "00",
+        sekunnit: "00",
+        ajastin_loppuu: new Date(
+            "April 17, 2023 15:00 GMT+3"
+        ).getTime(),
+        now: new Date().getTime(),
+        temppi: 0,
+        aikalaskuri: function () {
+            let counter = setInterval(() => {
+                this.now = new Date().getTime();
+                this.temppi = (this.ajastin_loppuu - this.now) / 1000;
+                this.sekunnit = this.formatointi_muut(this.temppi % 60);
+                this.minuutit = this.formatointi_muut(this.temppi / 60) % 60;
+                this.tunnit =
+                    this.formatointi_muut(this.temppi / (60 * 60)) % 24;
+                this.paivat = this.formatointi_tunnit(
+                    this.temppi / (60 * 60 * 24)
+                );
+                if (this.temppi <= 0) {
+                    clearInterval(counter);
+                    this.sekunnit = "00";
+                    this.minuutit = "00";
+                    this.tunnit = "00";
+                    this.paivat = "0";
+                }
+            }, 1000);
+        },
+        formatointi_tunnit: function (value) {
+            if (value < 10) {
+                return Math.floor(value);
+            } else return Math.floor(value);
+        },
+        formatointi_muut: function (value) {
+            if (value < 10) {
+                return "0" + Math.floor(value);
+            } else return Math.floor(value);
+        },
+    };
+} 

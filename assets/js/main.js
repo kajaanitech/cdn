@@ -22,7 +22,7 @@ $(document).ready(async function () {
 
                     var desc = ``;
                     if (element?.description) {
-                        desc = `<div class="my-2 text-sm font-medium text-gray-500">${element?.description}</div>`;
+                        desc = `<div class="mt-2 mb-2 text-sm font-medium text-gray-500">${element?.description}</div>`;
                     }
 
                     var type = ``;

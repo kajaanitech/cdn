@@ -24,7 +24,7 @@ $(document).ready(async function () {
 
                     var desc = ``;
                     if (element?.description_en) {
-                        desc = `<div class="my-2 text-sm font-medium text-gray-500">${element?.description_en ?? element.description}</div>`;
+                        desc = `<div class="mt-2 mb-2 text-sm font-medium text-gray-500">${element?.description_en ?? element.description}</div>`;
                     }
 
                     var type = ``;

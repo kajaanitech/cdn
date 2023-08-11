@@ -6,52 +6,51 @@ $(document).ready(async function () {
             var temp = ``;
 
             response.data.tuotteet.forEach(element => {
-                var kuvat = ``;
-
-                if (Array.isArray(element?.kuva)) {
-                    element.images.forEach(kuva => {
-                        kuvat += `<div class="hidden duration-700 ease-in-out" data-carousel-item><img src="${kuva}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Palvelun Kuva"></div>`
-                    });
-
-                } else {
-                    kuvat = `<img class="p-8 rounded-lg" src="${element?.kuva}" alt="Palvelu tuote">`;
-                }
-
                 if (Array.isArray(element?.kuva)) {
                 } else {
-
                     var desc = ``;
                     if (element?.description) {
-                        desc = `<div class="mt-2 mb-2 text-sm font-medium text-gray-500">${element?.description}</div>`;
+                        desc = element?.description;
                     }
 
                     var type = ``;
-
                     if (element?.type === "Tuntityö") {
-                        type = `/ tunti`;
+                        type = `<div class="flex flex-col absolute top-0 left-0"> <div class="w-64 py-8 pr-32"> <span class="text-sm font-medium mr-2 px-3 py-1 rounded-full bg-white text-black border-2 border-[#DC1A21]">Tuntityö</span> </div></div>`;
                     } else if (element?.type === "KM") {
-                        type = `/ km`;
+                        type = `<div class="flex flex-col absolute top-0 left-0"> <div class="w-64 py-8 pr-32"> <span class="text-sm font-medium mr-2 px-3 py-1 rounded-full bg-white text-black border-2 border-[#DC1A21]">KM</span> </div></div>`;
                     } else if (element?.type === "Alkaen") {
-                        type = `Alkaen`;
+                        type = `<div class="flex flex-col absolute top-0 left-0"> <div class="w-64 py-8 pr-32"> <span class="text-sm font-medium mr-2 px-3 py-1 rounded-full bg-white text-black border-2 border-[#DC1A21]">Alkaen</span> </div></div>`;
                     }
 
-                    temp += `
-                    
-                    <div class="w-full max-w-sm bg-white rounded-lg shadow-md">
-                        <div class="grid place-items-center my-6">
-                            <img src="${element?.kuva}" class="p-12 w-32 h-32 rounded-lg" alt="Palvelun Kuva">
-                        </div>
-                        <div class="px-5 pb-5 my-2">
-                            <h5 class="text-xl font-semibold tracking-tight text-gray-900">
-                                ${element?.nimi}
-                            </h5>
-                            <div class="flex items-center mt-2.5 mb-5"></div>
-                            <div class="justify-between items-center">
-                                <span class="text-3xl font-bold text-gray-900">${element?.hinta}€</span> ${type}
+                    temp += ` 
+            
+                        <div class="relative max-w-max mx-auto overflow-hidden rounded-3xl border">
+                            <div class="relative max-w-max mx-auto overflow-hidden rounded-t-3xl">
+                                ${type}
+
+                                <img src="${element?.kuva}" loading="lazy" alt="Palvelun kuva">
+                                <div
+                                    class="flex flex-col justify-end bg-gradient-to-t from-black/70 to-50% transition-all duration-500 absolute bottom-0 right-0 place-items-end w-full h-full hover:backdrop-bl-ur-sm">
+                                    <div class="w-64 py-8 pl-32">
+                                        <span
+                                            class="text-sm font-semibold mr-2 px-3 py-1 rounded bg-black/50 text-white border border-white">${element?.hinta}
+                                            €</span>
+                                    </div>
+                                </div>
                             </div>
-                            ${desc}
-                        </div>
-                    </div>`;
+                            <div class="mt-4 grid place-items-center font-semibold mb-4">
+                                <div class="ml-2 mr-2">
+                                    <h3 class="text-xl font-semibold tracking-tight text-gray-900">
+                                        ${element?.nimi}
+                                    </h3>
+                                    <span>
+                                        <p class="mt-2 text-sm font-medium text-gray-500">
+                                            ${desc}
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>`;
                 }
             });
 
